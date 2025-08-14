@@ -102,10 +102,12 @@ const createStartRunFn = <T>(actorNameOrId: string, { annotate, task }: TestCont
         // TODO prefill from repo's input schemas
         const {
             input,
+            options,
         } = runOptions;
         const actor = apifyClient.actor(actorNameOrId);
         const run = await actor.call(input, {
             build: actorConfig?.buildNumber,
+            ...options,
         });
 
         const runLink = `https://console.apify.com/view/runs/${run.id}`;
