@@ -78,12 +78,19 @@ export const reportTestRestuls = async ({
     slackMessage += `: has ${failedAssertions} failed assertions. Failing test suites: ${failed.length}/${total}.${jobLink}`;
     slackMessage += `\n\n${failedAssertionss[0]}`;
     const blocks = failedAssertionss.slice(1);
+
+    if (!repository) {
+        console.error(`Repository not provided, not sending slack notification`);
+        return
+    }
+
+    // remove repository-owner part
+    const channel = `#notif-${repository.replace(/[^/]+\//, '')}`;
+    console.error(`Sending a notification to slack channel ${channel}`);
     console.error('SLACK:', slackMessage);
     console.error('  blocks:', blocks.join('\n'));
-
     if (!dryRun) {
         const slackToken = getEnvVar('SLACK_TOKEN_TESTS_BOT');
-        const channel = `#notif-${repository}`;
         await sendSlackMessage(channel, slackMessage, blocks, slackToken);
     }
 };
