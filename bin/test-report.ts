@@ -20,7 +20,6 @@ export const reportTestRestuls = async ({
     const results: JsonTestResults = JSON.parse((await fs.readFile(jsonResultsPath)).toString());
     const passed: JsonAssertionResult[] = [];
     const failed: JsonAssertionResult[] = [];
-    let failedAssertions = 0;
 
     for (const result of results.testResults) {
         if (result.status !== 'failed') {
@@ -36,7 +35,7 @@ export const reportTestRestuls = async ({
         }
     }
 
-    const failedAssertionss: string[] = [];
+    const failedAssertions: string[] = [];
 
     console.error();
     console.error(`PASSED: ${passed.length}, FAILED: ${failed.length}`);
@@ -58,7 +57,7 @@ export const reportTestRestuls = async ({
     for (const [i, aResult] of failed.entries()) {
         const { failureMessages, fullName } = aResult;
         if (failureMessages) {
-            failedAssertions += failureMessages.length;
+            failedAssertions.push(...failureMessages.map(message => message.split('\n')?.[0]));
         }
         console.error(`${i + 1}) ${fullName} ... ${aResult.meta.runLink}`);
         console.error();
@@ -67,7 +66,7 @@ export const reportTestRestuls = async ({
     console.error(`PASSED: ${passed.length}, FAILED: ${failed.length}`);
     console.error();
 
-    if (failedAssertions === 0) {
+    if (failedAssertions.length === 0) {
         return;
     }
 
@@ -75,9 +74,9 @@ export const reportTestRestuls = async ({
     const total = failed.length + passed.length;
     const jobLink = jobUrl ? ` Check <${jobUrl}|the job>.` : '';
     let slackMessage = `\`${workflowName ?? '-'}\`: *${repository ?? '-'}*`;
-    slackMessage += `: has ${failedAssertions} failed assertions. Failing test suites: ${failed.length}/${total}.${jobLink}`;
-    slackMessage += `\n\n${failedAssertionss[0]}`;
-    const blocks = failedAssertionss.slice(1);
+    slackMessage += `: has ${failedAssertions.length} failed assertions. Failing test suites: ${failed.length}/${total}.${jobLink}`;
+    slackMessage += `\n\n${failedAssertions[0]}`;
+    const blocks = failedAssertions.slice(1);
 
     if (!repository) {
         console.error(`Repository not provided, not sending slack notification`);
