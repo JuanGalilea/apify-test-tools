@@ -1,4 +1,4 @@
-import { ApifyClient } from 'apify';
+import { ApifyClient } from 'apify-client';
 import {
     describe as vitestDescribe,
     ExpectStatic,

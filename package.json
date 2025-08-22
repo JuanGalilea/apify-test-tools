@@ -14,7 +14,6 @@
     "dependencies": {
         "@apify/consts": "^2.43.0",
         "@slack/web-api": "^7.9.2",
-        "apify": "^3.4.2",
         "apify-client": "^2.12.6",
         "yargs": "^18.0.0"
     },
