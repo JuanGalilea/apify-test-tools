@@ -234,7 +234,17 @@ const createStartRunFn = <T>(actorNameOrId: string, testContext: TestContext) =>
             input,
             options,
             prefilledInput,
+            runId,
         } = runOptions;
+
+        if (runId) {
+            const run = await apifyClient.run(runId).get()
+            if (!run) {
+                throw new Error(`Run with id "${runId}" doesn't exist`);
+            }
+            return new RunTestResult(apifyClient, run)
+        }
+
         const actor = apifyClient.actor(actorNameOrId);
 
         const actorInput = {

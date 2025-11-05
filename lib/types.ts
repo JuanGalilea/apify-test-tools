@@ -12,6 +12,13 @@ export type RunOptions<T> = {
     input: Omit<T, 'actorName'>
     options?: ActorCallOptions
     prefilledInput?: boolean
+    /**
+     * If you specify `runId`, all the other options will be ignored and this run's data will
+     * be downloaded instead.
+     *
+     * This is usefull for testing your tests on existing runs
+     */
+    runId?: string
 }
 
 export type Dataset<T> = {
