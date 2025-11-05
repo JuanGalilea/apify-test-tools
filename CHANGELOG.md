@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3
+
+### Lib
+- feat: add `runId` option to test tests
+- fix: PPE pass won't override overall pass
+
 ## 0.2.2
 
 ### Cli
