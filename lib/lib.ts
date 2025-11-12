@@ -173,6 +173,10 @@ interface StandbyTask {
     taskId: string;
 }
 
+const randomInt = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 /**
  * Creates a task with specific `build` - either `buildNumber` or default.
  *
@@ -202,11 +206,15 @@ const createStandbyTask = async (actorNameOrId: string, buildNumber?: string): P
     }
 
     try {
+        const title = `Test task - ${build}:${actorNameOrId}`.slice(0, 62);
+        // we try to create unique task name containing only `a-z0-9-` characters and at most 63 characters long
+        const name = `${randomInt(1, 1_000_000)}${title.toLowerCase().replaceAll(/\s+/g, '').replaceAll(/[^a-z0-9-]+/g, '-')}`.slice(0, 62);
         const newTask = await apifyClient.tasks().create({
             actId: actorNameOrId,
             actorStandby: actorStandbyOptions,
             description: `Task for testing standby version ${build}`,
-            title: `Test task - ${build}`,
+            title,
+            name,
         }) as Task & { standbyUrl?: string };
 
         const { id, standbyUrl } = newTask;
