@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0
+
+feat: feat: add maxRetriesPerRequest test
+
+## 0.4.0
+
+- feat: verbose message for toFinishWith failed assertions
+- docs: update retry count default value to 1
+
 ## 0.3.0
 
 ### Lib
