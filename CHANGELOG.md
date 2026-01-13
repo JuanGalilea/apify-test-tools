@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1
+
+fix: properly check on maxRetriesPerRequest
+fix: change module resolution to nodenext and fix types
+
 ## 0.5.0
 
 feat: feat: add maxRetriesPerRequest test
