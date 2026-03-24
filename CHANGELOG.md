@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 ### 🚀 Features
 
 - Make slack notification explictly opt in ([#60](https://github.com/apify/apify-test-tools/pull/60)) ([32fda72](https://github.com/apify/apify-test-tools/commit/32fda72726896d90c7a1444977b87e4aa8e8d247)) by [@ruocco-l](https://github.com/ruocco-l), closes [#55](https://github.com/apify/apify-test-tools/issues/55)
+- **bin:** Don&#x27;t test on nonfunctional changes in json files ([#56](https://github.com/apify/apify-test-tools/pull/56)) ([5f3c7c5](https://github.com/apify/apify-test-tools/commit/5f3c7c56c710a9120f894bdb6fd13855bf46f9f8)) by [@metalwarrior665](https://github.com/metalwarrior665), closes [#54](https://github.com/apify/apify-test-tools/issues/54)
 
 ### Debug
 
