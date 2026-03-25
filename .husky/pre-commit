@@ -1,0 +1,13 @@
+echo "pre-commit: typechecking, linting, testing, checking code formatting, checking for unused exports & validating schemas"
+
+
+npm test
+npm run format:check
+# We typecheck & lint last when we know our code works
+npx tsc --noEmit
+npx lint-staged
+
+# Activate once we resolv unused delete old builds
+# npm run check-unused
+
+echo "pre-commit: passed"
