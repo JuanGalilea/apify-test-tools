@@ -3,7 +3,6 @@
 All notable changes to this project will be documented in this file.
 
 <!-- git-cliff-unreleased-start -->
-
 ## 0.5.7 - **not yet released**
 
 ### 🚀 Features
@@ -11,9 +10,14 @@ All notable changes to this project will be documented in this file.
 - Make slack notification explictly opt in ([#60](https://github.com/apify/apify-test-tools/pull/60)) ([32fda72](https://github.com/apify/apify-test-tools/commit/32fda72726896d90c7a1444977b87e4aa8e8d247)) by [@ruocco-l](https://github.com/ruocco-l), closes [#55](https://github.com/apify/apify-test-tools/issues/55)
 - **bin:** Don&#x27;t test on nonfunctional changes in json files ([#56](https://github.com/apify/apify-test-tools/pull/56)) ([5f3c7c5](https://github.com/apify/apify-test-tools/commit/5f3c7c56c710a9120f894bdb6fd13855bf46f9f8)) by [@metalwarrior665](https://github.com/metalwarrior665), closes [#54](https://github.com/apify/apify-test-tools/issues/54)
 
+### 🐛 Bug Fixes
+
+- **bin:** In --base-commit, allow both sha string and Commit object ([#70](https://github.com/apify/apify-test-tools/pull/70)) ([cf01cd0](https://github.com/apify/apify-test-tools/commit/cf01cd0f3483502379415c48cfbf0f11665467ae)) by [@metalwarrior665](https://github.com/metalwarrior665), closes [#67](https://github.com/apify/apify-test-tools/issues/67)
+
 ### Debug
 
 - Bump version to test beta release ([1322d31](https://github.com/apify/apify-test-tools/commit/1322d31873b6d43e16a68e97bdc358752f813f79)) by [@metalwarrior665](https://github.com/metalwarrior665)
+
 
 <!-- git-cliff-unreleased-end -->
 
