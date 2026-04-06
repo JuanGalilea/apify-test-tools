@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+<!-- git-cliff-unreleased-start -->
+## 0.6.3 - **not yet released**
+
+### 🐛 Bug Fixes
+
+- **bin:** Case sensitivity in file path handling for git operations ([#75](https://github.com/apify/apify-test-tools/pull/75)) ([ae15cb6](https://github.com/apify/apify-test-tools/commit/ae15cb6a5e0b52d9332b7149b0b4f760cb41953a)) by [@metalwarrior665](https://github.com/metalwarrior665)
+
+
+<!-- git-cliff-unreleased-end -->
 ## [0.6.2](https://github.com/apify/apify-test-tools/releases/tag/v0.6.2) (2026-03-27)
 
 ### 🚀 Features
